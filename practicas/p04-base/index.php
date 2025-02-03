@@ -176,5 +176,24 @@
     echo "</ul>";
  ?>
 
+    <h2>Ejercicio 7</h2>
+    <p>Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
+    <p>a. La versión de Apache y PHP,</p>
+    <p>b. El nombre del sistema operativo (servidor),</p>
+    <p>c. El idioma del navegador (cliente).</p>
+
+    <?php
+    echo '<h4>Resultado de $_SERVER:</h4>';
+    echo '<ul>';
+
+
+    echo "<li>Versión de Apache: ".$_SERVER['SERVER_SOFTWARE']."</li>";
+    echo "<li>Versión de PHP: ".phpversion()."</li>";
+    echo "<li>Sistema operativo del servidor: ".php_uname()."</li>"; 
+    echo "<li>Idioma del navegador (cliente): ".$_SERVER['HTTP_ACCEPT_LANGUAGE']."</li>"; 
+
+    echo '</ul>';
+
+?>
 </body>
 </html>
