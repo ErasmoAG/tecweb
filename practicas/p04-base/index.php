@@ -135,6 +135,46 @@
     echo "<p>Valor de \$a: $a</p>";
     echo "<p>Valor de \$b: $b</p>";
     echo "<p>Valor de \$c: $c</p>";
-?>
+    ?>
+
+    <h2>Ejercicio 6</h2>
+    <p>Comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f usando var_dump().</p>
+    <p>Después, transformar los valores booleanos de $c y $e en algo visible con echo.</p>
+    
+    <ul>
+    <li>$a = “0”;</li>
+    <li>$b = “TRUE”;</li>
+    <li>$c = FALSE;</li>
+    <li>$d = ($a OR $b);</li>
+    <li>$e = ($a AND $c);</li>
+    <li>$f = ($a XOR $b);</li>
+    </ul>
+
+    <?php
+    $a = 0; 
+    $b = true; 
+    $c = false;
+    $d = ($a || $b); 
+    $e = ($a && $c);
+    $f = ($a XOR $b); 
+
+    echo "<p>Valores Booleanos:</p>";
+    echo "<ul>";
+    echo "<li>\$a = "; var_dump((bool)$a); echo "</li>"; // Se evalúa como false
+    echo "<li>\$b = "; var_dump((bool)$b); echo "</li>"; // Se evalúa como true
+    echo "<li>\$c = "; var_dump((bool)$c); echo "</li>"; // Se evalúa como false
+    echo "<li>\$d = "; var_dump((bool)$d); echo "</li>"; // Se evalúa como true
+    echo "<li>\$e = "; var_dump((bool)$e); echo "</li>"; // Se evalúa como false
+    echo "<li>\$f = "; var_dump((bool)$f); echo "</li>"; // Se evalúa como true
+    echo "</ul>";
+
+    echo "<h4>Booleanos convertidos:</h4>";
+    echo "<ul>";
+    echo "<li>\$c = " . ($c ? 'true' : 'false') . "</li>"; // false
+    echo "<li>\$e = " . ($e ? 'true' : 'false') . "</li>"; // false
+    echo "<li>\$f = " . ($f ? 'true' : 'false') . "</li>"; // true
+    echo "</ul>";
+ ?>
+
 </body>
 </html>
