@@ -31,6 +31,40 @@
         echo '</ul>';
     ?>
 
+    <h2>Ejercicio 2</h2>
+    <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
+    <ul>
+    <li>$a = “ManejadorSQL”;</li>
+    <li>$b = 'MySQL’;</li>
+    <li>$c = &$a;</li>
+    </ul>
+    <?php
 
+    $a = "ManejadorSQL";
+    $b = 'MySQL';
+    $c = &$a;
+    
+    echo "<p>Valores iniciales:</p>";
+    echo "<ul>";
+    echo "<li>a: $a</li>";
+    echo "<li>b: $b</li>";
+    echo "<li>c: $c</li>";
+    echo "</ul>";
+        
+    // Segunda asignación
+    $a = "PHP server";
+    $b = &$a;
+
+    echo "<h4>Valores después de la reasignación:</h4>";
+    echo "<ul>";
+    echo "<li>a: $a</li>";
+    echo "<li>b: $b</li>";
+    echo "<li>c: $c</li>";
+    echo "</ul>";
+
+    echo "<h4>Explicación:</h4>";
+    echo "<p>En la segunda asignación, la referencia de c sigue apuntando a a, por lo que su valor también cambia.</p>";
+
+    ?>
 </body>
 </html>
