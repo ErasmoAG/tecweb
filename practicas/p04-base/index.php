@@ -64,7 +64,7 @@
 
     echo "<h4>Explicación:</h4>";
     echo "<p>En la segunda asignación, la referencia de c sigue apuntando a a, por lo que su valor también cambia.</p>";
-
+    unset($a, $b, $c);
     ?>
     <h2>Ejercicio 3</h2>
     <p>Muestra el contenido de cada variable inmediatamente después de cada asignación, verificar la evolución del tipo de estas variables (imprime todos los componentes de los arreglo):</p>
@@ -103,7 +103,19 @@
   
 
     ?>
+    <h2>Ejercicio 4</h2>
+    <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de la matriz $GLOBALS o del modificador global de PHP.</p>
+    <?php
+    global $a, $b, $c, $z;
 
+    echo '<p>Valores utilizando $GLOBALS:</p>';
+
+    echo "<p>\$a = ".$GLOBALS['a']."</p>";
+    echo "<p>\$b = ".$GLOBALS['b']."</p>";
+    echo "<p>\$c = ".$GLOBALS['c']."</p>";
+    echo "<p>\$z[0] = ".$GLOBALS['z'][0]."</p>";
+
+    ?>
 
 </body>
 </html>
