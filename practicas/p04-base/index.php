@@ -66,5 +66,44 @@
     echo "<p>En la segunda asignación, la referencia de c sigue apuntando a a, por lo que su valor también cambia.</p>";
 
     ?>
+    <h2>Ejercicio 3</h2>
+    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación, verificar la evolución del tipo de estas variables (imprime todos los componentes de los arreglo):</p>
+    <ul>
+    <li>$a = “PHP5”;</li>
+    <li>$z[] = &$a;</li>
+    <li>$b = “5a version de PHP”;</li>
+    <li>$c = $b*10;</li>
+    <li>$a .= $b;</li>
+    <li>$b *= $c;</li>
+    <li>$z[0] = “MySQL”;</li>
+    </ul>
+    <?php
+    $a = "PHP5";
+    echo "<p>Valor de a: $a </p>";
+
+
+    $z[] = &$a;
+    echo "<p>Valor de z[]: ", $z[0] ,"</p>";
+
+    $b = "5a version de PHP";
+    echo "<p>Valor de b: $b </p>";
+
+    //Por recomendacion se ectrajo el valor numerico para evitar el error ya que un string no puede ser multiplicado
+    $c = intval($b) * 10;
+    echo "<p>Valor de c: $c </p>";
+
+    $a .= $b;
+    echo "<p>Valor de a: $a </p>";
+
+    $b *= $c;
+    echo "<p>Valor de b: $b </p>";
+
+    $z[0] = "MySQL";
+    echo "<p>Valor de z[]: ", $z[0] ,"</p>";
+  
+
+    ?>
+
+
 </body>
 </html>
