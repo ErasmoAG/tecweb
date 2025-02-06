@@ -36,6 +36,27 @@
     ?>
 
 
+    <h2>Ejercicio 3</h2>
+    <p>Utiliza un ciclo while para encontrar el primer número entero obtenido aleatoriamente, que sea múltiplo de un número dado.</p>
+    <p>Además, crea una variante usando el ciclo do-while.</p>
+
+
+
+    <?php
+    require_once __DIR__.'/src/funciones.php';
+
+    if (isset($_GET['multiplo'])) {
+        $multiplo = intval($_GET['multiplo']);
+        if ($multiplo > 0) {
+            encontrarMultiploWhile($multiplo);
+            encontrarMultiploDoWhile($multiplo);
+        } else {
+            echo "<p>Por favor introduce un número mayor a 0.</p>";
+        }
+    }
+    ?>
+
+
 
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p06-base/index.php" method="post">
