@@ -77,4 +77,25 @@ function encontrarMultiploDoWhile($multiplo) {
     echo "El primer número múltiplo de $multiplo es: $num (en $intentos intentos)<br>";
 }
 
+//FUNCIONES EJERCICOO 4
+function crearArregloAscii() {
+    $arreglo = [];
+
+    // Crear el arreglo usando un ciclo for
+    for ($i = 97; $i <= 122; $i++) {
+        $arreglo[$i] = chr($i);
+    }
+
+    // Mostrar el arreglo en una tabla XHTML
+    echo "<h3>Tabla de caracteres ASCII:</h3>";
+    echo "<table border='1' cellpadding='5' cellspacing='0'>";
+    echo "<tr><th>Índice (ASCII)</th><th>Letra</th></tr>";
+
+    foreach ($arreglo as $key => $value) {
+        echo "<tr><td>$key</td><td>$value</td></tr>";
+    }
+
+    echo "</table>";
+}
+
 ?>

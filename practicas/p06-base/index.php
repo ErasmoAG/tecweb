@@ -57,6 +57,18 @@
     ?>
 
 
+    <h2>Ejercicio 4</h2>
+    <p>Crea un arreglo cuyos índices van de 97 a 122 y cuyos valores son las letras de la 'a' a la 'z'.</p>
+    <p>El arreglo se mostrará en una tabla con sus índices y valores correspondientes.</p>
+
+    <?php
+    require_once __DIR__.'/src/funciones.php';
+
+
+    crearArregloAscii();
+    ?>
+
+
 
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p06-base/index.php" method="post">
