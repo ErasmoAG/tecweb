@@ -97,6 +97,38 @@
     }
     ?>
 
+
+
+    <h2>Ejercicio 6</h2>
+    <p>Consulta de información del parque vehicular.</p>
+
+
+    <form action="" method="get">
+        <label for="matricula">Buscar por matrícula:</label>
+        <input type="text" id="matricula" name="matricula" placeholder="Ej. ABC1234">
+        <input type="submit" value="Buscar">
+    </form>
+
+    <form action="" method="get">
+        <input type="hidden" name="mostrar_todos" value="1">
+        <input type="submit" value="Mostrar todos los autos">
+    </form>
+
+    <?php
+    require_once __DIR__.'/src/funciones.php';
+
+    if (isset($_GET['matricula'])) {
+        $matricula = strtoupper(trim($_GET['matricula']));
+        mostrarAutoPorMatricula($matricula);
+    }
+
+    if (isset($_GET['mostrar_todos'])) {
+        mostrarTodosLosAutos();
+    }
+    ?>
+
+
+
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p06-base/index.php" method="post">
         Name: <input type="text" name="name"><br>
