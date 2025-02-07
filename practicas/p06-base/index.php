@@ -68,7 +68,34 @@
     crearArregloAscii();
     ?>
 
+    <h2>Ejercicio 5</h2>
+    <p>Identificar si una persona de sexo femenino está en el rango de edad permitido (18 a 35 años).</p>
 
+    <form action="" method="post">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br><br>
+
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <?php
+    require_once __DIR__.'/src/funciones.php';
+
+
+    if (isset($_POST['edad']) && isset($_POST['sexo'])) {
+        $edad = $_POST['edad'];
+        $sexo = $_POST['sexo'];
+
+  
+        verificarEdadSexo($edad, $sexo);
+    }
+    ?>
 
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p06-base/index.php" method="post">

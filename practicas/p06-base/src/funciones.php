@@ -98,4 +98,17 @@ function crearArregloAscii() {
     echo "</table>";
 }
 
+//FUNCIONES EJERCICIO 5
+
+function verificarEdadSexo($edad, $sexo) {
+    // Convertimos el sexo a minúsculas para evitar errores con mayúsculas
+    $sexo = strtolower($sexo);
+
+    if ($sexo == 'femenino' && $edad >= 18 && $edad <= 35) {
+        echo "<h3>Bienvenida, usted está en el rango de edad permitido.</h3>";
+    } else {
+        echo "<h3>Acceso denegado. No cumple con los requisitos de edad o sexo.</h3>";
+    }
+}
+
 ?>
