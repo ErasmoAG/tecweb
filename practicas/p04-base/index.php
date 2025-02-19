@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Práctica 3</title>
+    <title>Práctica 5</title>
 </head>
 <body>
     <h2>Ejercicio 1</h2>
@@ -30,170 +30,196 @@
         echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
         echo '</ul>';
     ?>
-
     <h2>Ejercicio 2</h2>
-    <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
-    <ul>
-    <li>$a = “ManejadorSQL”;</li>
-    <li>$b = 'MySQL’;</li>
-    <li>$c = &$a;</li>
-    </ul>
+    <p>Proporcionar los valores de $a, $b, $c como sigue:<br />
+    $a = “ManejadorSQL”;<br/>
+    $b = 'MySQL’;<br/>
+    $c = &amp;$a;</p>
+    <p>a. Ahora muestra el contenido de cada variable</p>
+    <p>b. Agrega al código actual las siguientes asignaciones:<br/>
+    $a = “PHP server”;<br/>
+    $b = &amp;$a;</p>
+    <p>c. Vuelve a mostrar el contenido de cada uno</p>
+    <p>d. Describe en y muestra en la página obtenida qué ocurrió en el segundo bloque de
+    asignaciones</p>
     <?php
-
-    $a = "ManejadorSQL";
-    $b = 'MySQL';
-    $c = &$a;
-    
-    echo "<p>Valores iniciales:</p>";
-    echo "<ul>";
-    echo "<li>a: $a</li>";
-    echo "<li>b: $b</li>";
-    echo "<li>c: $c</li>";
-    echo "</ul>";
-        
-    // Segunda asignación
-    $a = "PHP server";
-    $b = &$a;
-
-    echo "<h4>Valores después de la reasignación:</h4>";
-    echo "<ul>";
-    echo "<li>a: $a</li>";
-    echo "<li>b: $b</li>";
-    echo "<li>c: $c</li>";
-    echo "</ul>";
-
-    echo "<h4>Explicación:</h4>";
-    echo "<p>En la segunda asignación, la referencia de c sigue apuntando a a, por lo que su valor también cambia.</p>";
-    unset($a, $b, $c);
+        $a = "ManejadorSQL";
+        $b = 'MySQL';
+        $c = &$a;
+        echo '<h4>Respuesta inciso a:</h4>';
+        echo "<p>Valores iniciales:</p>";
+        echo "a: $a <br />";
+        echo "b: $b <br />";
+        echo "c: $c <br />";
+        echo '<h4>Cambio hecho del inciso b.</h4>'; 
+        $a = "PHP server";
+        $b = &$a;
+        echo '<h4>Respuesta inciso c.</h4>';
+        echo "<p>Valores después del cambio:</p>";
+        echo "a: $a <br />";
+        echo "b: $b <br />";
+        echo "c: $c <br />";
+        echo '<h4>Respuesta inciso d.</h4>';
+        echo "<p>Explicación:</p>";
+        echo "La variable \$c es una referencia a \$a, por lo que al cambiar \$a, también cambia \$c. \n";
+        echo "Luego, \$b también se hace referencia a \$a, por lo que todas apuntan al mismo valor.";
+        unset($a, $b, $c);
     ?>
     <h2>Ejercicio 3</h2>
-    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación, verificar la evolución del tipo de estas variables (imprime todos los componentes de los arreglo):</p>
-    <ul>
-    <li>$a = “PHP5”;</li>
-    <li>$z[] = &$a;</li>
-    <li>$b = “5a version de PHP”;</li>
-    <li>$c = $b*10;</li>
-    <li>$a .= $b;</li>
-    <li>$b *= $c;</li>
-    <li>$z[0] = “MySQL”;</li>
-    </ul>
+    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
+       verificar la evolución del tipo de estas variables (imprime todos los componentes de los
+       arreglo):</p>
+    <p>$a = “PHP5”;<br />
+       $z[] = &amp;$a;<br />
+       $b = “5a version de PHP”;<br />
+       $c = $b*10;<br />
+       $a .= $b;<br />
+       $b *= $c;<br />
+       $z[0] = “MySQL”;
+    </p>
     <?php
-    $a = "PHP5";
-    echo "<p>Valor de a: $a </p>";
+        echo '<h4>Respuesta:</h4>';
+        $a = "PHP5";
+        echo "<p>Valor de \$a: $a</p>";
+        echo "<p>Tipo de \$a: " . gettype($a) . "</p>";
 
+        $z[] = &$a;
+        echo "<p>Valor de \$z: ";
+        print_r($z);
+        echo "</p>";
+        echo "<p>Tipo de \$z: " . gettype($z) . "</p>";
 
-    $z[] = &$a;
-    echo "<p>Valor de z[]: ", $z[0] ,"</p>";
+        $b = "5a version de PHP";
+        echo "<p>Valor de \$b: $b</p>";
+        echo "<p>Tipo de \$b: " . gettype($b) . "</p>";
 
-    $b = "5a version de PHP";
-    echo "<p>Valor de b: $b </p>";
+        $c = $b * 10;
+        echo "<p>Valor de \$c: $c</p>";
+        echo "<p>Tipo de \$c: " . gettype($c) . "</p>";
 
-    //Por recomendacion se ectrajo el valor numerico para evitar el error ya que un string no puede ser multiplicado
-    $c = intval($b) * 10;
-    echo "<p>Valor de c: $c </p>";
+        $a .= $b;
+        echo "<p>Valor de \$a después de concatenar: $a</p>";
+        echo "<p>Tipo de \$a: " . gettype($a) . "</p>";
 
-    $a .= $b;
-    echo "<p>Valor de a: $a </p>";
-    $b = intval($b);
-    $b *= $c;
-    echo "<p>Valor de b: $b </p>";
+        $b *= $c;
+        echo "<p>Valor de \$b después de multiplicar: $b</p>";
+        echo "<p>Tipo de \$b: " . gettype($b) . "</p>";
 
-    $z[0] = "MySQL";
-    echo "<p>Valor de z[]: ", $z[0] ,"</p>";
-  
+        $z[0] = "MySQL";
+        echo "<p>Valor de \$z después de modificar: ";
+        print_r($z);
+        echo "</p>";
+        echo "<p>Tipo de \$z: " . gettype($z) . "</p>";
 
+        unset($a, $b, $c, $z);
     ?>
     <h2>Ejercicio 4</h2>
-    <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de la matriz $GLOBALS o del modificador global de PHP.</p>
+    <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
+    la matriz $GLOBALS o del modificador global de PHP.</p>
     <?php
-    global $a, $b, $c, $z;
 
-    echo '<p>Valores utilizando $GLOBALS:</p>';
+        echo '<h4>Respuesta:</h4>';
+        $a = "PHP5";
+        $z[] = &$a;
+        $b = "5a version de PHP";
+        $c = $b * 10;
+        $a .= $b;
+        $b *= $c;
+        $z[0] = "MySQL";
 
-    echo "<p>\$a = ".$GLOBALS['a']."</p>";
-    echo "<p>\$b = ".$GLOBALS['b']."</p>";
-    echo "<p>\$c = ".$GLOBALS['c']."</p>";
-    echo "<p>\$z[0] = ".$GLOBALS['z'][0]."</p>";
+        echo "<strong>Usando \$GLOBALS para mostrar los valores finales:</strong><br>";
+        echo "Valor de \$a: " . $GLOBALS['a'] . "<br>";
+        echo "Valor de \$b: " . $GLOBALS['b'] . "<br>";
+        echo "Valor de \$c: " . $GLOBALS['c'] . "<br>";
+        echo "Valor de \$z: ";
+        print_r($GLOBALS['z']);
 
+        unset($a, $b, $c, $z);
     ?>
-
     <h2>Ejercicio 5</h2>
     <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
-    <ul>
-    <li>$a = “7 personas”;</li>
-    <li>$b = (integer) $a;</li>
-    <li>$a = “9E3”;</li>
-    <li>$c = (double) $a;</li>
-    </ul>
-
+    <p>$a = “7 personas”;<br />
+       $b = (integer) $a;<br />
+       $a = “9E3”;<br />
+       $c = (double) $a;<br />
+    </p>
     <?php
-    $a = "7 personas";
-    $b = (integer) $a;
-    $a = "9E3";
-    $c = (double) $a;
+        echo '<h4>Respuesta:</h4>';
+        $a = "7 personas";
+        $b = (integer) $a;
+        $a = "9E3";
+        $c = (double) $a;
 
-    echo "<p>Valor de \$a: $a</p>";
-    echo "<p>Valor de \$b: $b</p>";
-    echo "<p>Valor de \$c: $c</p>";
+        echo "Valor de \$a: $a (Tipo: " . gettype($a) . ")<br>";
+        echo "Valor de \$b: $b (Tipo: " . gettype($b) . ")<br>";
+        echo "Valor de \$c: $c (Tipo: " . gettype($c) . ")<br>";
+        
+        unset($a, $b, $c);
     ?>
-
     <h2>Ejercicio 6</h2>
-    <p>Comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f usando var_dump().</p>
-    <p>Después, transformar los valores booleanos de $c y $e en algo visible con echo.</p>
-    
-    <ul>
-    <li>$a = “0”;</li>
-    <li>$b = “TRUE”;</li>
-    <li>$c = FALSE;</li>
-    <li>$d = ($a OR $b);</li>
-    <li>$e = ($a AND $c);</li>
-    <li>$f = ($a XOR $b);</li>
-    </ul>
-
+    <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+    usando la función var_dump(datos).</p>
+    <p>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
+    en uno que se pueda mostrar con un echo:</p>
+    <p>
+    $a = “0”;<br />
+    $b = “TRUE”;<br />
+    $c = FALSE;<br />
+    $d = ($a OR $b);<br />
+    $e = ($a AND $c);<br />
+    $f = ($a XOR $b);<br />
+    </p>
     <?php
-    $a = 0; 
-    $b = true; 
-    $c = false;
-    $d = ($a || $b); 
-    $e = ($a && $c);
-    $f = ($a XOR $b); 
+        $a = "0";      
+        $b = "TRUE";   
+        $c = FALSE;    
+        $d = ($a OR $b);  
+        $e = ($a AND $c); 
+        $f = ($a XOR $b); 
+        echo '<h4>Respuesta:</h4>'; 
+        echo "<h3>Valores booleanos:</h3>";
+        echo "Valor de \$a: "; var_dump((bool)$a); echo "<br>"; 
+        echo "Valor de \$b: "; var_dump((bool)$b); echo "<br>"; 
+        echo "Valor de \$c: "; var_dump($c); echo "<br>"; 
+        echo "Valor de \$d: "; var_dump($d); echo "<br>"; 
+        echo "Valor de \$e: "; var_dump($e); echo "<br>"; 
+        echo "Valor de \$f: "; var_dump($f); echo "<br>";  
+        
+        echo "<h3>Conversión de valores booleanos:</h3>";
+        echo "Valor de \$c: " . var_export($c, true) . "<br>";
+        echo "Valor de \$e: " . var_export($e, true) . "<br>";
 
-    echo "<p>Valores Booleanos:</p>";
-    echo "<ul>";
-    echo "<li>\$a = "; var_dump((bool)$a); echo "</li>"; // Se evalúa como false
-    echo "<li>\$b = "; var_dump((bool)$b); echo "</li>"; // Se evalúa como true
-    echo "<li>\$c = "; var_dump((bool)$c); echo "</li>"; // Se evalúa como false
-    echo "<li>\$d = "; var_dump((bool)$d); echo "</li>"; // Se evalúa como true
-    echo "<li>\$e = "; var_dump((bool)$e); echo "</li>"; // Se evalúa como false
-    echo "<li>\$f = "; var_dump((bool)$f); echo "</li>"; // Se evalúa como true
-    echo "</ul>";
-
-    echo "<h4>Booleanos convertidos:</h4>";
-    echo "<ul>";
-    echo "<li>\$c = " . ($c ? 'true' : 'false') . "</li>"; // false
-    echo "<li>\$e = " . ($e ? 'true' : 'false') . "</li>"; // false
-    echo "<li>\$f = " . ($f ? 'true' : 'false') . "</li>"; // true
-    echo "</ul>";
- ?>
-
+        unset($a, $b, $c, $d, $e, $f);
+    ?>
     <h2>Ejercicio 7</h2>
     <p>Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
-    <p>a. La versión de Apache y PHP,</p>
-    <p>b. El nombre del sistema operativo (servidor),</p>
-    <p>c. El idioma del navegador (cliente).</p>
-
+    <ul>
+        <li>a. La versión de Apache y PHP.</li>
+        <li>b. El nombre del sistema operativo (servidor).</li>
+        <li>c. El idioma del navegador (cliente).</li>
+    </ul>
     <?php
-    echo '<h4>Resultado de $_SERVER:</h4>';
-    echo '<ul>';
+
+        echo '<h4>Respuesta:</h4>';
+        echo "<h3>Información del Servidor y Cliente</h3>";
 
 
-    echo "<li>Versión de Apache: ".$_SERVER['SERVER_SOFTWARE']."</li>";
-    echo "<li>Versión de PHP: ".phpversion()."</li>";
-    echo "<li>Sistema operativo del servidor: ".php_uname()."</li>"; 
-    echo "<li>Idioma del navegador (cliente): ".$_SERVER['HTTP_ACCEPT_LANGUAGE']."</li>"; 
+        echo "<strong>Versión de Apache y PHP:</strong><br>";
+        echo $_SERVER['SERVER_SOFTWARE'] . "<br><br>";
 
-    echo '</ul>';
 
-?>
+        echo "<strong>Nombre del Sistema Operativo del Servidor:</strong><br>";
+        echo PHP_OS . "<br><br>";
+
+        echo "<strong>Idioma del Navegador del Cliente:</strong><br>";
+        echo $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>";
+    ?>
+
+    <div>
+        <p>
+            <a href="https://validator.w3.org/markup/check?uri=referer"><img
+            src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+        </p>
+    </div>
 </body>
 </html>
