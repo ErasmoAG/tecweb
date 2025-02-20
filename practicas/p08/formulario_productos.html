@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 300px;
+            margin: auto;
+        }
+        input, textarea, button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registro de Productos</h2>
+    <form action="http://localhost/tecweb/practicas/p08/set_producto_v2.php" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="marca" placeholder="Marca" required>
+        <input type="text" name="modelo" placeholder="Modelo" required>
+        <input type="number" name="precio" placeholder="Precio" step="0.01" required>
+        <textarea name="detalles" placeholder="Detalles" required></textarea>
+        <input type="number" name="unidades" placeholder="Unidades" required>
+        <input type="text" name="imagen" placeholder="Imagen (URL)" required>
+        <button type="submit">Registrar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+</body>
+</html>
