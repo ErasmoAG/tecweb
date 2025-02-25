@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 300px;
+            margin: auto;
+        }
+        input, textarea, button, select {
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registro de Productos</h2>
+    <form id="formularioProductos"  method="post">
+        <input type="text" name="nombre" placeholder="Nombre" id="form-name" required>
+        <div id="res1" class="error"></div>
+
+        <select name="marca" id="form-marca" required>
+            <option value="">Selecciona una marca</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Apple">Apple</option>
+            <option value="Huawei">Huawei</option>
+        </select>
+        <div id="res2" class="error"></div>
+
+        <input type="text" name="modelo" placeholder="Modelo" id="form-modelo" required>
+        <div id="res3" class="error"></div>
+
+        <input type="number" name="precio" placeholder="Precio" id="form-precio" step="0.01" required min="100">
+        <div id="res4" class="error"></div>
+
+        <textarea name="detalles" placeholder="Detalles" id="form-detalles"></textarea>
+        <div id="res5" class="error"></div>
+
+        <input type="number" name="unidades" placeholder="Unidades" id="form-unidades" required min="0">
+        <div id="res6" class="error"></div>
+
+        <input type="url" name="imagen" placeholder="Imagen (URL)" id="form-imagen">
+        <div id="res7" class="error"></div>
+
+        <button type="submit">Registrar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+
+    <script src="validaciones.js"></script>
+</body>
+</html>
