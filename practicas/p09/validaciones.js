@@ -35,7 +35,7 @@ function validar_modelo() {
     let entrada = document.getElementById("form-modelo").value;
     let sinErrores = true;
 
-    if (entrada.trim() === "" || !/^[a-zA-Z0-9]+$/.test(entrada) || entrada.length > 25) {
+    if (entrada.trim() === "" || entrada.length > 25) {
         mensaje3 = "El modelo debe ser requerido, alfanumérico y tener 25 caracteres o menos.";
         sinErrores = false;
     }

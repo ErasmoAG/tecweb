@@ -80,7 +80,7 @@
                         <td><?= $value['detalles'] ?></td>
                         <td><img src=<?= $value['imagen'] ?> ></td>
                         <td>
-                            <a href="formulario_productos_v2.php?id=<?= $value['id'] ?>" class="btn btn-warning">Modificar</a>
+                            <a href="formulario_productos_v3.php?id=<?= $value['id'] ?>" class="btn btn-warning">Modificar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

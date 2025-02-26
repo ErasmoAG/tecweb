@@ -71,7 +71,7 @@
                         <td><?php echo htmlspecialchars($producto['detalles']); ?></td>
                         <td><img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="Imagen del producto" /></td>
                         <td>
-                            <a href="formulario_productos_v2.php?id=<?= $producto['id'] ?>" class="btn btn-warning">Modificar</a>
+                            <a href="formulario_productos_v3.php?id=<?= $producto['id'] ?>" class="btn btn-warning">Modificar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
