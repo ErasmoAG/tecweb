@@ -1,60 +1,60 @@
 <?php
-// Incluye el archivo de conexión a la base de datos
+header('Content-Type: application/json');
 include_once __DIR__.'/database.php';
 
-// SE OBTIENE LA INFORMACIÓN DEL PRODUCTO ENVIADA POR EL CLIENTE
-$producto = file_get_contents('php://input');
+$inputJSON = file_get_contents("php://input");
+error_log("JSON recibido: " . $inputJSON);
+file_put_contents(__DIR__."/debug.log", $inputJSON);
 
-if (!empty($producto)) {
-    // SE TRANSFORMA EL STRING DEL JSON A OBJETO
-    $jsonOBJ = json_decode($producto);
+$data = json_decode($inputJSON, true);
 
-    // SE VALIDA QUE EL OBJETO JSON TENGA LOS CAMPOS REQUERIDOS
-    if (isset($jsonOBJ->nombre) && isset($jsonOBJ->marca) && isset($jsonOBJ->modelo) && 
-        isset($jsonOBJ->precio) && isset($jsonOBJ->detalles) && isset($jsonOBJ->unidades) && 
-        isset($jsonOBJ->imagen)) {
-
-        // SE PREPARA LA CONSULTA PARA VERIFICAR SI EL PRODUCTO YA EXISTE
-        $sql_check = "SELECT id FROM productos WHERE nombre = ? AND marca = ? AND modelo = ?";
-        $stmt_check = $conexion->prepare($sql_check);
-        $stmt_check->bind_param('sss', $jsonOBJ->nombre, $jsonOBJ->marca, $jsonOBJ->modelo);
-        $stmt_check->execute();
-        $stmt_check->store_result();
-
-        // SI EL PRODUCTO YA EXISTE, SE DEVUELVE UN MENSAJE DE ERROR
-        if ($stmt_check->num_rows > 0) {
-            echo json_encode(array('error' => 'El producto ya existe en la base de datos.'));
-            $stmt_check->close();
-            $conexion->close();
-            exit;
-        }
-        $stmt_check->close();
-
-        // SE PREPARA LA CONSULTA PARA INSERTAR EL PRODUCTO
-        $sql_insert = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
-                       VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt_insert = $conexion->prepare($sql_insert);
-        $stmt_insert->bind_param('sssdsis', $jsonOBJ->nombre, $jsonOBJ->marca, $jsonOBJ->modelo, 
-                                 $jsonOBJ->precio, $jsonOBJ->detalles, $jsonOBJ->unidades, $jsonOBJ->imagen);
-
-        // SE EJECUTA LA INSERCIÓN
-        if ($stmt_insert->execute()) {
-            // SI LA INSERCIÓN FUE EXITOSA, SE DEVUELVE UN MENSAJE DE ÉXITO
-            echo json_encode(array('success' => 'Producto registrado exitosamente.'));
-        } else {
-            // SI HUBO UN ERROR, SE DEVUELVE UN MENSAJE DE ERROR
-            echo json_encode(array('error' => 'Error al insertar el producto: ' . $stmt_insert->error));
-        }
-
-        // SE CIERRAN LAS CONEXIONES
-        $stmt_insert->close();
-        $conexion->close();
-    } else {
-        // SI FALTAN CAMPOS EN EL JSON, SE DEVUELVE UN MENSAJE DE ERROR
-        echo json_encode(array('error' => 'Faltan campos en el JSON.'));
-    }
-} else {
-    // SI NO SE RECIBIÓ NINGÚN DATO, SE DEVUELVE UN MENSAJE DE ERROR
-    echo json_encode(array('error' => 'No se recibieron datos.'));
+if (!$data) {
+    echo json_encode(["error" => "No se recibieron los datos necesarios.", "debug" => $inputJSON]);
+    exit;
 }
+
+// Verificar que los datos esenciales están presentes
+if (!isset($data['nombre']) || !isset($data['precio']) || !isset($data['modelo']) || !isset($data['marca'])) {
+    echo json_encode(["error" => "Faltan datos requeridos."]);
+    exit;
+}
+
+// Obtener valores del producto
+$nombre = $data['nombre'];
+$precio = floatval($data['precio']);
+$unidades = isset($data['unidades']) ? intval($data['unidades']) : 0;
+$modelo = $data['modelo'];
+$marca = $data['marca'];
+$detalles = isset($data['detalles']) ? $data['detalles'] : '';
+$imagen = isset($data['imagen']) ? $data['imagen'] : 'img/default.png';
+
+//Verificar si el producto ya existe en la base de datos
+$verificarSQL = "SELECT id FROM productos WHERE nombre = ? AND modelo = ? AND marca = ?";
+$stmtVerificar = $conexion->prepare($verificarSQL);
+$stmtVerificar->bind_param('sss', $nombre, $modelo, $marca);
+$stmtVerificar->execute();
+$stmtVerificar->store_result();
+
+if ($stmtVerificar->num_rows > 0) {
+    echo json_encode(["error" => "El producto ya existe en la base de datos."]);
+    $stmtVerificar->close();
+    $conexion->close();
+    exit;
+}
+
+$stmtVerificar->close();
+
+// Si no existe, proceder a la inserción
+$sql = "INSERT INTO productos (nombre, precio, unidades, modelo, marca, detalles, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('sdissss', $nombre, $precio, $unidades, $modelo, $marca, $detalles, $imagen);
+
+if ($stmt->execute()) {
+    echo json_encode(["mensaje" => "Producto agregado correctamente"]);
+} else {
+    echo json_encode(["error" => "Error al insertar el producto"]);
+}
+
+$stmt->close();
+$conexion->close();
 ?>
