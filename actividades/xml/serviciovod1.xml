@@ -57,22 +57,22 @@
 
         <programas>
             <genero>
-                <nombre>Comedia</nombre>
+                <nombre>Accion</nombre>
                 <titulo>
-                    <nombre>Risas sin Control</nombre>
-                    <duracion>24 min</duracion>
+                    <nombre>John Wick</nombre>
+                    <duracion>110 min</duracion>
                 </titulo>
                 <titulo>
-                    <nombre>La Casa de los Bromistas</nombre>
-                    <duracion>30 min</duracion>
+                    <nombre>Mad Max</nombre>
+                    <duracion>120 min</duracion>
                 </titulo>
                 <titulo>
-                    <nombre>Tilin Show</nombre>
-                    <duracion>28 min</duracion>
+                    <nombre>Mision Imposible</nombre>
+                    <duracion>147 min</duracion>
                 </titulo>
                 <titulo>
-                    <nombre>Vecinos Insoportables</nombre>
-                    <duracion>25 min</duracion>
+                    <nombre>Gladiador</nombre>
+                    <duracion>158 min</duracion>
                 </titulo>
             </genero>
             <genero>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-7"?>
+<CatalagoVOD>
+    <cuenta correo="erasmo.agui.gasca@gmail.com">
+        <perfiles>
+            <perfil usuario="Alfonso" idioma="Español"/>
+            <perfil usuario="Tilin" idioma="Yucateco"/>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero nombre="Comedia">
+                <titulo>
+                    <nombre duracion="105 min">Una pelicula de Minecraft</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="98 min">Los compadres del Barrio</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="102 min">Vacaciones con el tio</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="87 min">El chiste Final</nombre>
+                </titulo>
+            </genero>
+            <genero nombre="Ciencia ficcion">
+                <titulo>
+                    <nombre duracion="115 min">Galaxia perdida</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="123 min">El horizonte el Tiempo</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="109 min">Origen Artificial</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="130 min">Universo Paralelo</nombre>
+                </titulo>
+            </genero>
+        </peliculas>
+
+        <programas>
+            <genero>
+                <nombre>Accion</nombre>
+                <titulo>
+                    <nombre duracion="110 min">John Wick</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="120 min">Mad Max</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="147 min">Mision Imposible</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="158 min">Gladiador</nombre>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Apocalipsis</nombre>
+                <titulo>
+                    <nombre duracion="45 min">El Ultimo Amanecer</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="50 min">Sobrevivientes</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="42 min">Mundo Devastado</nombre>
+                </titulo>
+                <titulo>
+                    <nombre duracion="48 min">Fin de la Humanidad</nombre>
+                </titulo>
+            </genero>
+        </programas>
+    </contenido>
+</CatalagoVOD>
