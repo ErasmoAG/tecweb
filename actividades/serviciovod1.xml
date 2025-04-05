@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CatalagoVOD>
+    <cuenta>
+        <correo>erasmo.agui.gasca@gmail.com</correo>
+        <perfiles>
+            <perfil>
+                <usuario>Erasmo</usuario>
+                <idioma>Español</idioma>
+            </perfil>
+            <perfil>
+                <usuario>Tilin</usuario>
+                <idioma>Yucateco</idioma>
+            </perfil>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero>
+                <nombre>Comedia</nombre>
+                <titulo>
+                    <nombre>Una pelicula de Minecraft</nombre>
+                    <duracion>105 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Los Compadres del Barrio</nombre>
+                    <duracion>98 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Vacaciones con el Tio</nombre>
+                    <duracion>102 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>El Chiste Final</nombre>
+                    <duracion>87 min</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Ciencia ficcion</nombre>
+                <titulo>
+                    <nombre>Galaxia Perdida</nombre>
+                    <duracion>115 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>El Horizonte del Tiempo</nombre>
+                    <duracion>123 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Origen Artificial</nombre>
+                    <duracion>109 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Universo Paralelo</nombre>
+                    <duracion>130 min</duracion>
+                </titulo>
+            </genero>
+        </peliculas>
+
+        <programas>
+            <genero>
+                <nombre>Comedia</nombre>
+                <titulo>
+                    <nombre>Risas sin Control</nombre>
+                    <duracion>24 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>La Casa de los Bromistas</nombre>
+                    <duracion>30 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Tilin Show</nombre>
+                    <duracion>28 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Vecinos Insoportables</nombre>
+                    <duracion>25 min</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Apocalipsis</nombre>
+                <titulo>
+                    <nombre>El Ultimo Amanecer</nombre>
+                    <duracion>45 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Sobrevivientes</nombre>
+                    <duracion>50 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Mundo Devastado</nombre>
+                    <duracion>42 min</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Fin de la Humanidad</nombre>
+                    <duracion>48 min</duracion>
+                </titulo>
+            </genero>
+        </programas>
+    </contenido>
+</CatalagoVOD>
