@@ -7,12 +7,23 @@ require 'vendor/autoload.php';
 
 $app = AppFactory::create();
 
-// Esta línea debe coincidir con la carpeta donde está tu index.php:
+//Ejemplo 1
 $app->setBasePath("/tecweb/actividades/prueba_slim");
+
 
 $app->get('/', function ($request, $response, $args) {
     $response->getBody()->write("Hola mundo Slim!!!");
     return $response;
 });
 
+//Ejemplo 2
+$app->get("/hola[/{nombre}]", function( $request, $response, $args ){
+    $nombre = $args["nombre"] ?? "invitado";
+    $response->getBody()->write("Hola, " . $nombre);
+    return $response;
+});
+
+
 $app->run();
+
+?>
