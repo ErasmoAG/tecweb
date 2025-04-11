@@ -31,6 +31,19 @@ $app->post("/pruebapost", function( $request, $response, $args ){
     $response->getBody()->write("Valores: " . $val1 . " " . $val2);
     return $response;
 });
+
+$app->get("/testjson", function( $request, $response, $args){
+    $data = [
+        ["nombre" => "Erasmo", "apellidos" => "Aguilar Gasca"],
+
+    ];
+
+    $payload = json_encode($data, JSON_PRETTY_PRINT);
+
+    $response->getBody()->write($payload);
+    return $response->withHeader('Content-Type', 'application/json');
+});
+
 $app->run();
 
 ?>
