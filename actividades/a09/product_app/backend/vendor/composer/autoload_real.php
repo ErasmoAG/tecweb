@@ -22,6 +22,8 @@ class ComposerAutoloaderInitc568ca86b0b1e0ed7203f9d1d8b14b02
             return self::$loader;
         }
 
+        require __DIR__ . '/platform_check.php';
+
         spl_autoload_register(array('ComposerAutoloaderInitc568ca86b0b1e0ed7203f9d1d8b14b02', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(__DIR__));
         spl_autoload_unregister(array('ComposerAutoloaderInitc568ca86b0b1e0ed7203f9d1d8b14b02', 'loadClassLoader'));
@@ -30,6 +32,18 @@ class ComposerAutoloaderInitc568ca86b0b1e0ed7203f9d1d8b14b02
         call_user_func(\Composer\Autoload\ComposerStaticInitc568ca86b0b1e0ed7203f9d1d8b14b02::getInitializer($loader));
 
         $loader->register(true);
+
+        $filesToLoad = \Composer\Autoload\ComposerStaticInitc568ca86b0b1e0ed7203f9d1d8b14b02::$files;
+        $requireFile = \Closure::bind(static function ($fileIdentifier, $file) {
+            if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
+                $GLOBALS['__composer_autoload_files'][$fileIdentifier] = true;
+
+                require $file;
+            }
+        }, null, null);
+        foreach ($filesToLoad as $fileIdentifier => $file) {
+            $requireFile($fileIdentifier, $file);
+        }
 
         return $loader;
     }
